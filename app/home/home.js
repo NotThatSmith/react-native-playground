@@ -6,6 +6,8 @@ import {
   TouchableHighlight
 } from 'react-native'
 
+import PushNotification from 'react-native-push-notification'
+
 import styles from './styles'
 
 export default class Home extends Component {
@@ -17,7 +19,12 @@ export default class Home extends Component {
             <Text style={styles.buttonText}>Push Notifications</Text>
           </View>
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => {console.log('Local Notifications pressed')}}>
+        <TouchableHighlight onPress={() => {
+              PushNotification.localNotification({
+                message: 'Hello World'
+              })
+            }
+          }>
           <View style={styles.item}>
             <Text style={styles.buttonText}>Local Notifications</Text>
           </View>
