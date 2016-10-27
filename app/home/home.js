@@ -11,6 +11,15 @@ import PushNotification from 'react-native-push-notification'
 import styles from './styles'
 
 export default class Home extends Component {
+
+  constructor(props) {
+    super(props)
+    PushNotification.configure({
+      onNotification: function(notification) {
+        console.log( 'NOTIFICATION:', notification )
+      }
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -27,6 +36,18 @@ export default class Home extends Component {
           }>
           <View style={styles.item}>
             <Text style={styles.buttonText}>Local Notifications</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => {
+          //Need calendar view to choose when get notification
+              PushNotification.localNotificationSchedule({
+                message: "Hello World",
+                date: new Date(Date.now() + (10 * 1000)) // in 10 secs
+              });
+            }
+          }>
+          <View style={styles.item}>
+            <Text style={styles.buttonText}>Local Notifications Scheduled</Text>
           </View>
         </TouchableHighlight>
         <TouchableHighlight onPress={() => {console.log('Local Storage pressed')}}>
