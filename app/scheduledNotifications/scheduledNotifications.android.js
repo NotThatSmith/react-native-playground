@@ -39,7 +39,7 @@ export default class ScheduledNotifications extends Component {
         if (action === TimePickerAndroid.timeSetAction) {
           const dateToNotify = new Date(year, month, day, hour, minute)
           PushNotification.localNotificationSchedule({
-            message: "Hello from the past",
+            message: "Hello Android from the past",
             date: dateToNotify
           })                      
         } else {

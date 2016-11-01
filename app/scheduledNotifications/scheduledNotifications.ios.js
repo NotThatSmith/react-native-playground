@@ -40,6 +40,12 @@ export default class ScheduledNotifications extends Component {
   }
 
   toggleDatePicker = () => {
+    if(this.state.datePickerOpen === true) {
+      PushNotification.localNotificationSchedule({
+            message: "Hello iOS from the past",
+            date: this.state.date
+          })
+    }
     this.setState({datePickerOpen: !this.state.datePickerOpen})
   }
 
