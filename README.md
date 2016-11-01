@@ -4,8 +4,8 @@ Playing around with React Native
 
 ## TODO
 
-- [ ] Push notifications (iOS and Android)
-- [ ] Scheduled local notifications
+- [x] Scheduled local notifications
+- [ ] Push notifications
 - [ ] Audio
 - [ ] Local storage
 - [ ] Automated testing
