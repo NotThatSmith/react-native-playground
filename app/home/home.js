@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
-  TouchableHighlight
+  Button
 } from 'react-native'
 
 import PushNotification from 'react-native-push-notification'
@@ -24,32 +24,16 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={() => {console.log('Push Notifications pressed')}}>
-          <View style={styles.item}>
-            <Text style={styles.buttonText}>Push Notifications</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => {
+        <Button title='Push Notifications' onPress={() => {console.log('Push Notifications pressed')}} />
+        <Button title='Local Notifications' onPress={() => {
               PushNotification.localNotification({
                 message: 'Hello World'
               })
             }
-          }>
-          <View style={styles.item}>
-            <Text style={styles.buttonText}>Local Notifications</Text>
-          </View>
-        </TouchableHighlight>
+          } />
         <ScheduledNotifications />
-        <TouchableHighlight onPress={() => {console.log('Local Storage pressed')}}>
-          <View style={styles.item}>
-            <Text style={styles.buttonText}>Local Storage</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => {console.log('Audio pressed')}}>
-          <View style={styles.item}>
-            <Text style={styles.buttonText}>Audio</Text>
-          </View>
-        </TouchableHighlight>
+        <Button title='Local Storage' onPress={() => {console.log('Local Storage pressed')}} />
+        <Button title='Audio' onPress={() => {console.log('Audio pressed')}} />
       </View>
     )
   }

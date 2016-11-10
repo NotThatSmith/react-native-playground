@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
+  Button,
   DatePickerIOS
   
 } from 'react-native'
@@ -18,20 +18,15 @@ export default class ScheduledNotifications extends Component {
     super(props)
     this.state = {
       datePickerOpen: false,
-      date: new Date()
+      date: new Date(),
+      buttonText: 'Local Notifications Scheduled'
     }
   }
 
   render() {
     return (
         <View>
-          <TouchableHighlight onPress={this.toggleDatePicker}>
-            <View style={styles.item}>
-              {
-                  this.state.datePickerOpen == true ? <Text style={styles.buttonText}>Done</Text> : <Text style={styles.buttonText}>Local Notifications Scheduled</Text> 
-              } 
-            </View>
-          </TouchableHighlight>
+          <Button onPress={this.toggleDatePicker} title={this.state.buttonText} />
           {
             this.state.datePickerOpen ? <DatePickerIOS date={this.state.date} mode="datetime" onDateChange={this.onDateChange} /> : null 
           }
@@ -46,7 +41,10 @@ export default class ScheduledNotifications extends Component {
             date: this.state.date
           })
     }
-    this.setState({datePickerOpen: !this.state.datePickerOpen})
+    this.setState({
+      datePickerOpen: !this.state.datePickerOpen,
+      buttonText: this.state.datePickerOpen ? "Local Notifications Scheduled" : "Done"
+    })
   }
 
   onDateChange = (dateChangedTo) => {

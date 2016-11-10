@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
-  TouchableHighlight,
+  Button,
   DatePickerAndroid,
   TimePickerAndroid
 } from 'react-native'
@@ -15,11 +15,7 @@ export default class ScheduledNotifications extends Component {
 
   render() {
     return (
-      <TouchableHighlight onPress={this.onPress}>
-          <View style={styles.item}>
-            <Text style={styles.buttonText}>Local Notifications Scheduled</Text>
-          </View>
-      </TouchableHighlight>
+      <Button onPress={this.onPress} title='Local Notifications Scheduled' />
     )
   }
 
